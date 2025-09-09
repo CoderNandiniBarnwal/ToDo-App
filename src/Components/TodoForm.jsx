@@ -1,10 +1,6 @@
 //TodoForm.jsx
 
-import { useState } from "react";
-
-export default function TodoForm({ todo, setTodo }) {
-  const [inputValue, setInputValue] = useState("");
-
+export default function TodoForm({ todo, setTodo, inputValue, setInputValue }) {
   function addTodo() {
     if (inputValue.trim() === "") {
       setInputValue("");

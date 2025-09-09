@@ -1,12 +1,25 @@
 //TodoList.jsx
 
-import Modal from "./Modal";
-
-export default function TodoList({ todo, showModal }) {
+export default function TodoList({
+  todo,
+  isActive,
+  setIsActive,
+  setTodoId,
+  isEditable,
+  setIsEditable,
+}) {
   //   const deleteTodo = (id) => {
   //     setTodo(todo.filter((itemToDlt) => itemToDlt.id !== id));
   //   };
-  // const editTodo = (id) => {};
+  const editTodo = (id) => {
+    setTodoId(id);
+    setIsEditable(!isEditable);
+  };
+
+  const showModal = (id) => {
+    setTodoId(id);
+    setIsActive(!isActive);
+  };
 
   return (
     <>
@@ -19,14 +32,13 @@ export default function TodoList({ todo, showModal }) {
                   <div className="w-[90%] mt-2 px-5">{item.text}</div>
 
                   <button
-                    // onClick={() => editTodo(item.id)}
+                    onClick={() => editTodo(item.id)}
                     className="text-3xl text-yellow-400 w-[7%] py-1"
                   >
                     <i className="fa-solid fa-file-pen" />
                   </button>
 
                   <button
-                    // onClick={() => deleteTodo(item.id)}
                     onClick={() => showModal(item.id)}
                     className="text-3xl text-red-400 py-1 w-[7%]"
                   >
