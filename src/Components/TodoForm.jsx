@@ -2,6 +2,16 @@
 
 export default function TodoForm({ todo, setTodo, inputValue, setInputValue }) {
   function addTodo() {
+    const isDuplicate = todo.some(
+      (item) => inputValue.toLowerCase() === item.text.toLowerCase()
+    );
+
+    if (isDuplicate) {
+      alert(inputValue + " Already there");
+      setInputValue("");
+      return;
+    }
+
     if (inputValue.trim() === "") {
       setInputValue("");
       return;
@@ -22,10 +32,10 @@ export default function TodoForm({ todo, setTodo, inputValue, setInputValue }) {
             setInputValue(e.target.value);
           }}
           placeholder="Add Something"
-          className="border-[1px] px-10 py-4 w-[700px] text-2xl"
+          className="border-[1px] px-10 py-4 w-[700px] text-2xl outline-none"
         />
         <button
-          className="bg-green-600 px-10 py-4 text-2xl font-bold hover:text-white"
+          className="bg-green-600 px-10 py-4 text-2xl font-bold text-white"
           onClick={addTodo}
         >
           Add

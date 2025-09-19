@@ -1,5 +1,3 @@
-import TodoList from "./todoList";
-
 export default function Modal({
   todo,
   setTodo,
@@ -22,14 +20,14 @@ export default function Modal({
           <p className="font-semibold">Are you sure you want to delete it ?</p>
           {/* {todo.map((item) => ( */}
           <button
-            className="border-2 px-5 mt-3 rounded-2xl hover:bg-green-400 py-2 mx-2"
+            className="border-2 px-5 mt-3 rounded-2xl hover:bg-green-400 py-2 mx-2 text-white"
             onClick={() => deleteTodo(todoId)}
           >
             Confirm
           </button>
           {/* ))} */}
           <button
-            className="border-2 px-5 mt-3 rounded-2xl hover:bg-red-400 py-2 mx-2"
+            className="border-2 px-5 mt-3 rounded-2xl hover:bg-red-400 py-2 mx-2 text-white"
             onClick={cancelDelete}
           >
             Cancel
